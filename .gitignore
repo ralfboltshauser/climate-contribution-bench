@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+results/*/episodes/**/stderr.txt
+.DS_Store
+.vercel
