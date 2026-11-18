@@ -82,7 +82,7 @@ def chart_grid(R) -> str:
             r = R["metrics"][ag]["grid"].get(f"{k}.{on}.{ins}")
             p = None if not r else r["p"]
             shade = "var(--surface-2)" if p is None else f"color-mix(in oklab, var(--seq-hi) {round(p * 100)}%, var(--seq-lo))"
-            txt = "var(--fg)" if p is None or p < .55 else "var(--seq-ink)"
+            txt = "var(--heat-low-ink)" if p is None or p < .55 else ("var(--heat-mid-ink)" if p < .7 else "var(--heat-high-ink)")
             cx = left + ci_ * cw
             s.append(f'<g class="hov"><title>{e(R["labels"][ag])} · {k}, {"pre-ticked" if on == "on" else "unticked"}, {INSTR_LABEL[ins]}: ticked at the end in {frac(r)} runs ({ci(r)})</title>'
                      f'<rect x="{cx + 1}" y="{y + 1}" width="{cw - 2}" height="{ch - 2}" rx="3" fill="{shade}"/>'
