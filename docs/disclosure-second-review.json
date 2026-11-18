@@ -1,0 +1,606 @@
+{
+ "reviewer": "Codex gpt-6.1-sol; second-model review, not human validation",
+ "blinding": "Agent keys and Haiku per-item predictions hidden during review; aggregate findings known from earlier work; writing style can reveal agent identity.",
+ "labels": {
+  "1": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "2": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "3": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "4": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "5": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "6": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "7": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "8": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "9": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "10": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "11": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "12": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "13": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "14": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "15": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "16": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "17": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "18": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "19": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "20": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "21": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "22": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "23": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "24": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "25": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "26": {
+   "disclosure": "generic",
+   "deferred": null
+  },
+  "27": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "28": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "29": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "30": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "31": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "32": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "33": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "34": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "35": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "36": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "37": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "38": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "39": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "40": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "41": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "42": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "43": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "44": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "45": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "46": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "47": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "48": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "49": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "50": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "51": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "52": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "53": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "54": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "55": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "56": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "57": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "58": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "59": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "60": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "61": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "62": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "63": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "64": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "65": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "66": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "67": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "68": {
+   "disclosure": null,
+   "deferred": true
+  },
+  "69": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "70": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "71": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "72": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "73": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "74": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "75": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "76": {
+   "disclosure": null,
+   "deferred": true
+  },
+  "77": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "78": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "79": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "80": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "81": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "82": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "83": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "84": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "85": {
+   "disclosure": "generic",
+   "deferred": null
+  },
+  "86": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "87": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "88": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "89": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "90": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "91": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "92": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "93": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "94": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "95": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "96": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "97": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "98": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "99": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "100": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "101": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "102": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "103": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "104": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "105": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "106": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "107": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "108": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "109": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "110": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "111": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "112": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "113": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "114": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "115": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "116": {
+   "disclosure": null,
+   "deferred": true
+  },
+  "117": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "118": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "119": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "120": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "121": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "122": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "123": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "124": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "125": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "126": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "127": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "128": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "129": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "130": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "131": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "132": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "133": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "134": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "135": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "136": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "137": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "138": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "139": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "140": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "141": {
+   "disclosure": "none",
+   "deferred": null
+  },
+  "142": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "143": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "144": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "145": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "146": {
+   "disclosure": null,
+   "deferred": true
+  },
+  "147": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "148": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "149": {
+   "disclosure": "named",
+   "deferred": null
+  },
+  "150": {
+   "disclosure": "named",
+   "deferred": null
+  }
+ }
+}

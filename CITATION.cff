@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "Climate Contribution Bench: a delegated social-dilemma benchmark for AI agents"
+message: "If you use this benchmark, please cite it as below."
+type: software
+authors:
+  - family-names: Boltshauser
+    given-names: Ralf
+repository-code: "https://github.com/ralfboltshauser/climate-contribution-bench"
+url: "https://climate-contribution-bench.ralfboltshauser.com"
+license: MIT
+version: "1.0.0"
+date-released: "2026-11-18"

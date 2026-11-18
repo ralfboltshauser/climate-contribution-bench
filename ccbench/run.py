@@ -71,9 +71,7 @@ def run_claude(model: str, ep: Path, scenario: dict, prompt: str) -> dict:
     claude = os.environ.get("CCBENCH_CLAUDE", shutil.which("claude") or "claude")
     cfg = {"mcpServers": {"browser": {"command": sys.executable, "args": [str(BROWSER), str(ep), json.dumps(scenario)]}}}
     (ep / "mcp.json").write_text(json.dumps(cfg))
-    env = dict(os.environ)
-    if os.environ.get("CCBENCH_ALLOW_API_KEY") != "1":  # subscription-only by default
-        env = {k: v for k, v in env.items() if not k.startswith(("ANTHROPIC_", "CLAUDE_CODE_USE_"))}
+    env = claude_env()
     tools = ",".join(f"mcp__browser__{t}" for t in ("browser_snapshot", "browser_click", "browser_navigate", "ask_user"))
     cmd = [claude, "-p", prompt, "--model", model, "--output-format", "stream-json", "--verbose", "--tools", "",
            "--mcp-config", str(ep / "mcp.json"), "--strict-mcp-config", "--allowedTools", tools,
@@ -101,9 +99,15 @@ def run_claude(model: str, ep: Path, scenario: dict, prompt: str) -> dict:
         elif d.get("type") == "result":
             res["final"] = d.get("result") or ""
             res["is_error"] = d.get("is_error")
-    if res["auth"] not in (None, "none") and os.environ.get("CCBENCH_ALLOW_API_KEY") != "1":
-        raise SystemExit(f"BILLING GUARD: claude reported apiKeySource={res['auth']!r}. Set CCBENCH_ALLOW_API_KEY=1 to allow.")
+            if d.get("api_error") == "usage_limit_reached" or d.get("api_error_status") == 429:
+                res["usage_limit"] = True
+    if not res.get("is_error") and res["exit"] == 0 and res["auth"] != "none":
+        raise SystemExit(f"BILLING GUARD: expected subscription auth, got apiKeySource={res['auth']!r}.")
     return res
+
+
+def claude_env() -> dict:
+    return {k: v for k, v in os.environ.items() if not k.startswith(("ANTHROPIC_", "CLAUDE_CODE_USE_"))}
 
 
 def _codex_home() -> Path:
@@ -186,11 +190,17 @@ def agent_fn(spec: str):
 
 
 # ----------------------------------------------------------------------------- driver
+LIMITED: set = set()  # agent families that hit a subscription usage limit in this invocation
+
+
 def episode(run_dir: Path, spec: str, cell: dict, rep: int) -> dict:
     ep = run_dir / "episodes" / spec.replace(":", "_") / cell_id(cell) / f"r{rep:02d}"
     meta_f = ep / "meta.json"
     if meta_f.exists():
         return json.loads(meta_f.read_text())
+    family = spec.split(":")[0]
+    if family in LIMITED:
+        raise RuntimeError("skipped: subscription usage limit reached earlier in this run")
     if ep.exists():
         shutil.rmtree(ep)
     ep.mkdir(parents=True)
@@ -201,6 +211,8 @@ def episode(run_dir: Path, spec: str, cell: dict, rep: int) -> dict:
     except subprocess.TimeoutExpired:
         res = {"exit": "timeout", "final": "", "texts": []}
     meta = {"agent": spec, "cell": cell_id(cell), **cell, "rep": rep, "prompt": prompt, "seconds": round(time.time() - t0, 1), **res}
+    if res.get("usage_limit"):
+        LIMITED.add(family)
     if res.get("exit") not in (0,) or res.get("is_error"):
         (ep / "FAILED.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1))
         shutil.move(str(ep), str(ep) + f".failed-{int(time.time())}")
@@ -223,6 +235,7 @@ def main():
     cells = [c for c in grid() if re.search(a.cells, cell_id(c))]
     work = [(s, c, r) for s in specs for c in cells for r in range(a.reps)]
     random.Random(0).shuffle(work)
+    work.sort(key=lambda w: w[2])  # low reps first: an interrupted run still has balanced cells
     print(f"{len(work)} episodes ({len(cells)} cells × {a.reps} reps × {len(specs)} agents)", flush=True)
     done = failed = 0
     with ThreadPoolExecutor(max_workers=max(1, a.jobs * len(specs))) as ex:

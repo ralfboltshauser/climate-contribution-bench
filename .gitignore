@@ -1,5 +1,10 @@
 __pycache__/
 *.pyc
-results/*/episodes/**/stderr.txt
 .DS_Store
 .vercel
+# raw runs stay local (contain local paths / CLI init blobs); the sanitized export runs.jsonl.gz is published
+results/*/episodes/
+results/*.log
+results/*/*.tmp
+
+.env*
